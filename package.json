@@ -1,0 +1,41 @@
+{
+    "name": "neatkit",
+    "version": "0.0.19",
+    "description": "Make react development easier with these components.",
+    "scripts": {
+        "prepublishOnly": "npm run --prefix components build",
+        "postpublish": "npm run --prefix components clean"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shivamdevs/NeatKit"
+    },
+    "keywords": [
+        "neatkit",
+        "kit",
+        "neat",
+        "components",
+        "react neatkit",
+        "react-neat-kit",
+        "neat-kit",
+        "react-neatkit"
+    ],
+    "author": "ShivamDevs",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shivamdevs/NeatKit/issues",
+        "email": "shivam0dewangan@gmail.com"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.15",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "rimraf": "^5.0.1",
+        "tslib": "^2.6.0",
+        "typescript": "^5.1.6"
+    },
+    "peerDependencies": {
+        "react": ">=18"
+    },
+    "homepage": "https://github.com/shivamdevs/NeatKit#readme"
+}

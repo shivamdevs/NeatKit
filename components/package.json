@@ -1,0 +1,14 @@
+{
+    "name": "neatkit/components",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/esm/index.d.ts",
+    "typings": "./dist/esm/index.d.ts",
+    "scripts": {
+        "build": "npm run compile",
+        "compile": "npm run clean && npm run compile:esm && npm run compile:cjs",
+        "compile:esm": "tsc",
+        "compile:cjs": "tsc --module commonjs --outDir dist/cjs",
+        "clean": "rimraf dist"
+    }
+}
