@@ -12,12 +12,13 @@ export interface LazyImageProps {
     className?: string;
     imageClass?: string;
     overlayClass?: string;
+    onLoad?: ((e: React.SyntheticEvent<HTMLImageElement, Event>) => void) | null;
     children?: React.ReactNode;
     style?: React.CSSProperties;
     imageStyle?: React.CSSProperties;
     overlayStyle?: React.CSSProperties;
     props?: React.HTMLAttributes<HTMLDivElement>;
-    imageProps?: React.HTMLAttributes<HTMLDivElement>;
+    imageProps?: React.HTMLAttributes<HTMLImageElement>;
     overlayProps?: React.HTMLAttributes<HTMLSpanElement>;
 };
 
@@ -34,6 +35,7 @@ export interface LazyImageProps {
  * @param props - Add additional props to the LazyImage component.
  * @param imageProps - Add additional props to the LazyImage - img component.
  * @param imageStyle - Add additional styles to the LazyImage - img component.
+ * @param onLoad - Add additional props to the LazyImage - overlay component.
  * @param overlayProps - Add additional props to the LazyImage - overlay component.
  * @param overlayClass - Add classes to the LazyImage - overlay component.
  * @param overlayStyle - Add additional styles to the LazyImage - overlay component.
@@ -56,6 +58,7 @@ export function LazyImage({
     props = {},
     imageProps = {},
     imageStyle = {},
+    onLoad = null,
     overlayClass = "",
     overlayProps = {},
     overlayStyle = {},
@@ -94,7 +97,10 @@ export function LazyImage({
                 height={height}
                 className={imageClass}
                 loading='lazy'
-                onLoad={(e) => ((e.target as HTMLImageElement).style.opacity = "1")}
+                onLoad={(e) => {
+                    onLoad?.(e);
+                    (e.target as HTMLImageElement).style.opacity = "1";
+                }}
                 {...imageProps}
             />
             {children}

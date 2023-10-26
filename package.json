@@ -1,6 +1,6 @@
 {
     "name": "neatkit",
-    "version": "0.0.19",
+    "version": "0.0.22",
     "description": "Make react development easier with these components.",
     "scripts": {
         "prepublishOnly": "npm run --prefix components build",
